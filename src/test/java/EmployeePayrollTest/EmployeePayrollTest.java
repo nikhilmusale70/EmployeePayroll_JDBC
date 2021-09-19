@@ -35,4 +35,14 @@ public class EmployeePayrollTest {
             throw new EmployeePayrollException("Some Error");
         }
     }
+
+    @Test  //uc5
+    public void employeesJoined_CertainDate() throws EmployeePayrollException {
+        String query = "SELECT * FROM employee_payroll WHERE start BETWEEN '2019-01-01' AND DATE(NOW())";
+        try {
+            epq.run(query);
+        }catch (Exception e){
+            throw new EmployeePayrollException("Some Error");
+        }
+    }
 }
