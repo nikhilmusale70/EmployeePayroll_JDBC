@@ -1,6 +1,7 @@
 package EmployeePayroll;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -13,7 +14,7 @@ public class EmployeePayrollQueries {
         Connection con = jdbcCon.connection();
         ResultSet rs = null;
         try {
-            Statement statement = con.createStatement();
+            PreparedStatement statement = con.prepareStatement(query);
             if (statement.execute(query)) {
                 rs = statement.executeQuery(query);
                 printingResultSer(rs);

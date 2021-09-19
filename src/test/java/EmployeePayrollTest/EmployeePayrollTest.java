@@ -26,7 +26,7 @@ public class EmployeePayrollTest {
         }
     }
 
-    @Test  //uc3
+    @Test  //uc3 same for uc4
     public void updatesARow_InDatabase() throws EmployeePayrollException {
         String query = "UPDATE employee_payroll SET salary = 3000000.00 WHERE name = 'Terisa';";
         try {
@@ -34,6 +34,5 @@ public class EmployeePayrollTest {
         }catch (Exception e){
             throw new EmployeePayrollException("Some Error");
         }
-        
     }
 }
