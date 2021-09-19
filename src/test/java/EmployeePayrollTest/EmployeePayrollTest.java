@@ -12,7 +12,7 @@ public class EmployeePayrollTest {
     EmployeePayrollQueries epq = new EmployeePayrollQueries();
 
     @Test   //uc1
-    public void true_IfDatabaseConection_IsSucessfull() {
+    public void true_IfDatabaseConection_IsSucessfull() throws EmployeePayrollException {
         conn.connection();
     }
 
