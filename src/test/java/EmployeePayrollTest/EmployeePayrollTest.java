@@ -25,4 +25,15 @@ public class EmployeePayrollTest {
             throw new EmployeePayrollException("Some Error");
         }
     }
+
+    @Test  //uc3
+    public void updatesARow_InDatabase() throws EmployeePayrollException {
+        String query = "UPDATE employee_payroll SET salary = 3000000.00 WHERE name = 'Terisa';";
+        try {
+            epq.run(query);
+        }catch (Exception e){
+            throw new EmployeePayrollException("Some Error");
+        }
+        
+    }
 }

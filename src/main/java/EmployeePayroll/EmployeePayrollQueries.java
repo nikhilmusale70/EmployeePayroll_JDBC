@@ -9,24 +9,24 @@ public class EmployeePayrollQueries {
     public void run(String query) throws  EmployeePayrollException {
         EmployeePayrollQueries epq = new EmployeePayrollQueries();
 
-        ResultSet rs = epq.queries(query);
-        printingResultSer(rs);
-
-    }
-
-    public ResultSet queries(String query) throws EmployeePayrollException {
         JDBC_Connection jdbcCon = new JDBC_Connection();
         Connection con = jdbcCon.connection();
-        ResultSet rs;
+        ResultSet rs = null;
         try {
             Statement statement = con.createStatement();
-            rs  = statement.executeQuery(query);
+            if (statement.execute(query)) {
+                rs = statement.executeQuery(query);
+                printingResultSer(rs);
+            }
+            else {
+                int rowsAffected = statement.executeUpdate(query);
+                System.out.println(rowsAffected + " Rows Affected");
+            }
         }
         catch (Exception e){
-            throw new EmployeePayrollException("Quey is not proper");
+            throw new EmployeePayrollException("Query is not proper");
         }
 
-        return rs;
 
     }
 
