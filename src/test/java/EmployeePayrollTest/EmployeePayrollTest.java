@@ -45,4 +45,14 @@ public class EmployeePayrollTest {
             throw new EmployeePayrollException("Some Error");
         }
     }
+
+    @Test  //uc5
+    public void avgMinMaxQueries() throws EmployeePayrollException {
+        String query = "SELECT SUM(salary) FROM employee_payroll WHERE gender ='m';";
+        try {
+            epq.run(query);
+        }catch (Exception e){
+            throw new EmployeePayrollException("Some Error");
+        }
+    }
 }

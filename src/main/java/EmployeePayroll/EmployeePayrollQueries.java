@@ -17,7 +17,9 @@ public class EmployeePayrollQueries {
             PreparedStatement statement = con.prepareStatement(query);
             if (statement.execute(query)) {
                 rs = statement.executeQuery(query);
-                printingResultSer(rs);
+                rs.next();                                      //AVG QUERRY
+                System.out.println(rs.getString("SUM(salary)"));
+              //  printingResultSer(rs);
             }
             else {
                 int rowsAffected = statement.executeUpdate(query);
